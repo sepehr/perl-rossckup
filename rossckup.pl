@@ -73,3 +73,6 @@ $rossckup = BACKUP_DST . '/' . BACKUP_ARCHIVE_NAME . "-$year$month$day.tar.gz";
 system("tar -czf $rossckup $dbckup $fileckup")
   or die 'Err! Could not merge files and db tarballs.';
 
+# Delete previous tarballs:
+unlink $dbckup, $fileckup;
+

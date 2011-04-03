@@ -57,3 +57,14 @@ $fileckup = BACKUP_DST . '/site.tmp.tar.gz';
 system('tar --exclude ' . BACKUP_DST . "/*  -czf $fileckup " . BACKUP_SRC)
   or warn 'There were problems making te files tarball.';
 
+# Make databases tarball:
+if (BACKUP_DB) {
+  # Find the proper command to issue:
+  my $cmd = (DB_NAMES eq 'all') ?
+    SYS_DUMP . ' --host=' . DB_HOST . ' --user=' . DB_USER . ' --password=' . DB_PWD . " --add-drop-table --all-databases -c -l --result-file=$dbckup" :
+    SYS_DUMP . ' --host=' . DB_HOST . ' --user=' . DB_USER . ' --password=' . DB_PWD . ' --add-drop-table --databases ' . DB_NAMES . ' -c -l | ' . SYS_GZIP . " > $dbckup";
+  # Issue:
+  system($cmd)
+    or warn 'There were problems dumping the specified databases.';
+}
+

@@ -44,3 +44,11 @@ use constant {
 
 ##### Warning: Donn touch me anymore! #####
 
+# Set date:
+# @see http://perldoc.perl.org/functions/localtime.html
+($s, $m, $h, $day, $month, $year, $wd, $yd, $o) = localtime();
+$year += 1900;
+# Set filenames:
+$dbckup = BACKUP_DST . '/db.tmp.sql.gz';
+$fileckup = BACKUP_DST . '/site.tmp.tar.gz';
+

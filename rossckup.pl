@@ -83,3 +83,29 @@ if (BACKUP_EMAIL_AFTER) {
   # TODO: Do!
 }
 
+# FTP upload:
+# @see http://perldoc.perl.org/Net/FTP.html
+if (FTP_UPLOAD) {
+  # Connect:
+  my $ftp = Net::FTP->new(FTP_HOST, Debug => 0)
+    or die 'Err! Could not connect to FTP host.';
+  # Login:
+  $ftp->login()
+    or die 'Err! Could not login to the FTP server.';
+  # Change dir:
+  $ftp->cwd(FTP_DST)
+    or die 'Err! Could not change the FTP working directory.';
+  # Set to bnary mode:
+  $ftp->binary();
+  # Upload backups:
+  $ftp->put($rossckup)
+    or die('Err! Could not upload the backups to the FTP server.');
+  # Close FTP session:
+  $ftp->quit();
+
+  # Delete local tarball:
+  if (BACKUP_DELETE_AFTER) {
+    unlink $rossckup;
+  }
+}
+

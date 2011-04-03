@@ -52,3 +52,8 @@ $year += 1900;
 $dbckup = BACKUP_DST . '/db.tmp.sql.gz';
 $fileckup = BACKUP_DST . '/site.tmp.tar.gz';
 
+# Make the files tarball:
+# @see http://perldoc.perl.org/functions/system.html
+system('tar --exclude ' . BACKUP_DST . "/*  -czf $fileckup " . BACKUP_SRC)
+  or warn 'There were problems making te files tarball.';
+

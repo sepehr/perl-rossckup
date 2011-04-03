@@ -76,7 +76,6 @@ system("tar -czf $rossckup $dbckup $fileckup")
 # Delete previous tarballs:
 unlink $dbckup, $fileckup;
 
-
 # Email notification:
 # @see
 if (BACKUP_EMAIL_AFTER) {

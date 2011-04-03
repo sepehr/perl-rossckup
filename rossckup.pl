@@ -5,7 +5,11 @@ use Net::FTP;
 # Configs
 use constant {
   # Delete local archives after FTP upload:
-  DELETE_AFTER_UPLOAD => 1,
+  BACKUP_DELETE_AFTER => 1,
+  # Email after successful backup:
+  BACKUP_EMAIL_AFTER => 1,
+  # Add date suffixes:
+  BACKUP_SUFFIX => 1,
   # Local directory to backup:
   BACKUP_SRC => '/home/user/public_html',
   # Local backup directory:

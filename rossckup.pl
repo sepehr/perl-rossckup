@@ -68,3 +68,8 @@ if (BACKUP_DB) {
     or warn 'There were problems dumping the specified databases.';
 }
 
+# Merge both tarballs together:
+$rossckup = BACKUP_DST . '/' . BACKUP_ARCHIVE_NAME . "-$year$month$day.tar.gz";
+system("tar -czf $rossckup $dbckup $fileckup")
+  or die 'Err! Could not merge files and db tarballs.';
+

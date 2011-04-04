@@ -10,8 +10,6 @@ use constant {
   BACKUP_ARCHIVE_NAME => 'rossckup',
   # Delete local archives after FTP upload:
   BACKUP_DELETE_AFTER => 1,
-  # Email after successful backup:
-  BACKUP_EMAIL_AFTER => 1,
   # Local directory to backup:
   BACKUP_SRC => '/home/user/public_html',
   # Local backup directory:
@@ -27,6 +25,20 @@ use constant {
   # Space separated list of database names
   #  to backup, you can specify all to back 'em all:
   DB_NAMES => 'db1 db2 db3 db4',
+  # Email after successful backup:
+  EMAIL_NOTIFY => 1,
+  # Also attach backup tarball to that email:
+  EMAIL_ATTACH => 1,
+  # Email sender:
+  EMAIL_FROM => 'rossckup@example.com',
+  # Email recipient:
+  EMAIL_TO => 'client@example.com',
+  # Email text template name:
+  EMAIL_TMPL_TXT => 'template.txt.tt',
+  # Email HTML template name:
+  EMAIL_TMPL_HTML => 'template.html.tt',
+  # Email templates directory path:
+  EMAIL_TMPL_PATH => '/path/to/templates',
   # FTP upload after local backup:
   FTP_UPLOAD => 1,
   # FTP hostname:
@@ -78,8 +90,8 @@ system("tar -czf $rossckup $dbckup $fileckup")
 unlink $dbckup, $fileckup;
 
 # Email notification:
-# @see
-if (BACKUP_EMAIL_AFTER) {
+# @see http://search.cpan.org/~chunzi/MIME-Lite-TT-HTML-0.03/lib/MIME/Lite/TT/HTML.pm
+if (EMAIL_NOTIFY) {
   # TODO: Do!
 }
 

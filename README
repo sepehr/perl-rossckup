@@ -11,8 +11,3 @@ Dependencies
  - Net::FTP
  - Net::SMTP::SSL
 
-Usage Example
-=============
-  $ chmod +x /path/to/rossckup.pl
-  $ perl /path/to/rossckup.pl
-

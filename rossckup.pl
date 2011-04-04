@@ -121,8 +121,8 @@ if (EMAIL_NOTIFY) {
     $mail->attr('content-type' => 'multipart/mixed');
     # Attach the tarball:
     $mail->attach(
-      Type => '',
       Path => $rossckup,
+      Type => 'application/x-gzip',
       Filename => BACKUP_ARCHIVE_NAME . "-$year$month$day.tar.gz",
       Disposition => 'attachment',
     );

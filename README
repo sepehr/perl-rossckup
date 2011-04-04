@@ -1,6 +1,6 @@
 Description
 ===========
-Rossckup (A mess of Cross Backup) is a simple Perl script for cross server file/db backup, suitable for damn shared hosting environments.
+Rossckup (A mess of Cross Backup) is a simple Perl script for local and cross server file/db backup, suitable for damn shared host wash machines.
 
 Notice
 ======
@@ -11,7 +11,8 @@ Dependencies
  - Net::FTP
  - MIME::Lite::TT::HTML
 
-Usage
-=====
-A brief usage description will go there...
+Usage Example
+=============
+  $ chmod +x /path/to/rossckup.pl
+  $ perl /path/to/rossckup.pl
 

@@ -18,9 +18,10 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 use strict;
-use warnings;
 use Net::FTP;
 use Net::SMTP::SSL;
+
+my $VERSION = 0.1;
 
 # Configs
 # @see http://perldoc.perl.org/constant.html
@@ -245,6 +246,29 @@ if (FTP_UPLOAD) {
   }
 }
 
-# Be a good gal, say bye:
+# Good gal, say bye:
 print("Bye!\n");
+
+=head1 NAME
+
+Rossckup.pl
+
+=head1 DESCRIPTION
+
+Local and cross server backup for wash machines!
+
+=head1 PREREQUISITES
+
+Rossckup requires the C<strict> module. It also requires
+C<Net::FTP> and C<Net::SMTP:SSL>.
+
+=pod OSNAMES
+
+any
+
+=pod SCRIPT CATEGORIES
+
+Web
+
+=cut
 

@@ -55,6 +55,10 @@ use constant {
   SYS_GZIP => '/usr/bin/gzip',
 };
 
+# Email template params:
+my %params;
+%params{name} = 'Mr. Foo Bar';
+
 ##### Warning: Donn touch me anymore! #####
 
 # Set date:

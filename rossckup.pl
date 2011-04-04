@@ -100,7 +100,35 @@ unlink $dbckup, $fileckup;
 # Email notification:
 # @see http://search.cpan.org/~chunzi/MIME-Lite-TT-HTML-0.03/lib/MIME/Lite/TT/HTML.pm
 if (EMAIL_NOTIFY) {
-  # TODO: Do!
+  # Set initials:
+  my $mail = MIME::Lite::TT::HTML->new(
+    To   => EMAIL_TO,
+    From => EMAIL_FROM,
+    Charset  => EMAIL_CHARSET,
+    Subject  => EMAIL_SUBJECT,
+    Timezone => EMAIL_TIMEZONE,
+    Encoding => EMAIL_ENCODING,
+    Template => {
+      text => EMAIL_TMPL_TXT,
+      html => EMAIL_TMPL_HTML,
+    },
+    TmplParams => \%params,
+    TmplOptions => \%options,
+  );
+  # Attach the backup tarball:
+  if (EMAIL_ATTACH) {
+    # Set content type:
+    $mail->attr('content-type' => 'multipart/mixed');
+    # Attach the tarball:
+    $mail->attach(
+      Type => '',
+      Path => $rossckup,
+      Filename => BACKUP_ARCHIVE_NAME . "-$year$month$day.tar.gz",
+      Disposition => 'attachment',
+    );
+  }
+  # Dispatch:
+  $mail->send();
 }
 
 # FTP upload:

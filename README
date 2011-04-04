@@ -4,12 +4,12 @@ Rossckup (A mess of Cross Backup) is a simple Perl script for cross server file/
 
 Notice
 ======
-DO NOT USE THIS SCRIPT UNLESS YOU HAVE NO RSYNC/SSH ACCESS ON YOUR HOSTING.
+DO NOT USE THIS SCRIPT UNLESS YOU HAVE NO RSYNC/SSH ACCESS ON YOUR HOSTING WASH MACHINE!
 
 Dependencies
 ============
  - Net::FTP
- - MIME::Lite
+ - MIME::Lite::TT::HTML
 
 Usage
 =====

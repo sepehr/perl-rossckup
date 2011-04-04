@@ -194,7 +194,7 @@ if (EMAIL_NOTIFY) {
   $smtp->datasend('To: ' . EMAIL_TO . "\n");
   $smtp->datasend('Subject: ' . EMAIL_SUBJECT . "\n");
   $smtp->datasend("\n");
-  # Prepare bo"\nRossckup Automated Backups\nhttp://github.com/sepehr/rssckup"dy tokens:
+  # Prepare body tokens:
   # Replace tokens, PHP's strtr() equivalent somehow:
   my %dic = (
     '_to_name_' => EMAIL_TO_NAME,

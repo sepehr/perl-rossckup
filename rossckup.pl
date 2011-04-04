@@ -1,6 +1,7 @@
 #!/usr/bin/perl -w
 
 use Net::FTP;
+use MIME::Lite::TT::HTML;
 
 # Configs
 # @see http://perldoc.perl.org/constant.html
@@ -55,7 +56,7 @@ $fileckup = BACKUP_DST . '/site.tmp.tar.gz';
 # Make the files tarball:
 # @see http://perldoc.perl.org/functions/system.html
 system('tar --exclude ' . BACKUP_DST . "/*  -czf $fileckup " . BACKUP_SRC)
-  or warn 'There were problems making te files tarball.';
+  or warn 'There were problems making files tarball.';
 
 # Make databases tarball:
 if (BACKUP_DB) {
@@ -63,7 +64,7 @@ if (BACKUP_DB) {
   my $cmd = (DB_NAMES eq 'all') ?
     SYS_DUMP . ' --host=' . DB_HOST . ' --user=' . DB_USER . ' --password=' . DB_PWD . " --add-drop-table --all-databases -c -l --result-file=$dbckup" :
     SYS_DUMP . ' --host=' . DB_HOST . ' --user=' . DB_USER . ' --password=' . DB_PWD . ' --add-drop-table --databases ' . DB_NAMES . ' -c -l | ' . SYS_GZIP . " > $dbckup";
-  # Issue:
+  # And issue:
   system($cmd)
     or warn 'There were problems dumping the specified databases.';
 }
@@ -94,7 +95,7 @@ if (FTP_UPLOAD) {
   # Change dir:
   $ftp->cwd(FTP_DST)
     or die 'Err! Could not change the FTP working directory.';
-  # Set to bnary mode:
+  # Set to binary mode:
   $ftp->binary();
   # Upload backups:
   $ftp->put($rossckup)

@@ -9,7 +9,7 @@ DO NOT USE THIS SCRIPT UNLESS YOU HAVE NO RSYNC/SSH ACCESS ON YOUR HOSTING WASH 
 Dependencies
 ============
  - Net::FTP
- - MIME::Lite::TT::HTML
+ - Net::SMTP::SSL
 
 Usage Example
 =============

@@ -36,9 +36,9 @@ use constant {
   # Email subject:
   EMAIL_SUBJECT => 'Rossckup Notification',
   # Email text template name:
-  EMAIL_TMPL_TXT => 'template.txt.tt',
+  EMAIL_TMPL_TXT => 'rossckup.txt.tt',
   # Email HTML template name:
-  EMAIL_TMPL_HTML => 'template.html.tt',
+  EMAIL_TMPL_HTML => 'rossckup.html.tt',
   # Email templates directory path:
   EMAIL_TMPL_PATH => '/path/to/templates',
   # Email charset:

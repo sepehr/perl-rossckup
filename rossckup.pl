@@ -23,7 +23,7 @@ use constant {
   # Database password:
   DB_PWD => '',
   # Space separated list of database names
-  #  to backup, you can specify all to back 'em all:
+  # to backup, you can specify all to back 'em all:
   DB_NAMES => 'db1 db2 db3 db4',
   # Email after successful backup:
   EMAIL_NOTIFY => 1,
@@ -33,12 +33,20 @@ use constant {
   EMAIL_FROM => 'rossckup@example.com',
   # Email recipient:
   EMAIL_TO => 'client@example.com',
+  # Email subject:
+  EMAIL_SUBJECT => 'Rossckup Notification',
   # Email text template name:
   EMAIL_TMPL_TXT => 'template.txt.tt',
   # Email HTML template name:
   EMAIL_TMPL_HTML => 'template.html.tt',
   # Email templates directory path:
   EMAIL_TMPL_PATH => '/path/to/templates',
+  # Email charset:
+  EMAIL_CHARSET => 'utf8',
+  # Email encoding:
+  EMAIL_ENCODING => 'quoted-printable',
+  # Email timezone:
+  EMAIL_TIMEZONE => 'Asia/Tehran',
   # FTP upload after local backup:
   FTP_UPLOAD => 1,
   # FTP hostname:

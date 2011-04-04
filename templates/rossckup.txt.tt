@@ -1,8 +1,0 @@
-Dear [% name %],
-Files and database backup operations has been successfully done. Based on your configs, you might find the backup tarballs attached. You can find the latest tarballs at:
-[% local_path %]
-[% remote_path %]
-
-Rossckup Automated Backup
-http://github.com/sepehr/rusckup
-

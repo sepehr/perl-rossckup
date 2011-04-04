@@ -21,10 +21,9 @@ use strict;
 use Net::FTP;
 use Net::SMTP::SSL;
 
-my $VERSION = 0.1;
+my $VERSION = 0.2;
 
 # Configs
-# @see http://perldoc.perl.org/constant.html
 use constant {
   # System path to gunzip executable:
   SYS_GZIP => '/bin/gzip',
@@ -170,7 +169,6 @@ else {
 }
 
 # Email notification:
-# @see http://search.cpan.org/~chunzi/MIME-Lite-TT-HTML-0.03/lib/MIME/Lite/TT/HTML.pm
 if (EMAIL_NOTIFY) {
   # Status:
   print('STATUS: Sending notification email to: ' . EMAIL_TO . "\n");
@@ -216,7 +214,6 @@ if (EMAIL_NOTIFY) {
 }
 
 # FTP upload:
-# @see http://perldoc.perl.org/Net/FTP.html
 if (FTP_UPLOAD) {
   # Status:
   print('STATUS: Uploading backup tarball via FTP: ' . FTP_HOST . "\n");

@@ -59,6 +59,10 @@ use constant {
 my %params;
 %params{name} = 'Mr. Foo Bar';
 
+# Email template options:
+my %options;
+%options{INCLUDE_PATH} = EMAIL_TMPL_PATH;
+
 ##### Warning: Donn touch me anymore! #####
 
 # Set date:

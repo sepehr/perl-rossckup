@@ -59,10 +59,6 @@ use constant {
 my %params;
 %params{name} = 'Mr. Foo Bar';
 
-# Email template options:
-my %options;
-%options{INCLUDE_PATH} = EMAIL_TMPL_PATH;
-
 ##### Warning: Donn touch me anymore! #####
 
 # Set date:
@@ -100,6 +96,10 @@ unlink $dbckup, $fileckup;
 # Email notification:
 # @see http://search.cpan.org/~chunzi/MIME-Lite-TT-HTML-0.03/lib/MIME/Lite/TT/HTML.pm
 if (EMAIL_NOTIFY) {
+  # Email template options:
+  my %options;
+  %options{INCLUDE_PATH} = EMAIL_TMPL_PATH;
+
   # Set initials:
   my $mail = MIME::Lite::TT::HTML->new(
     To   => EMAIL_TO,
